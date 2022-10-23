@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スコア順位推定</title>
+</head>
+<body>
+  <h1>スコア順位推定 簡易ツール</h1>
+
+  <form>
+    <label for="class">集計対象のアリーナクラス:</label>
+    <select name="class" id="class">
+      <option value="1">A1</option>
+      <option value="2">A2</option>
+      <option value="3">A3</option>
+      <option value="4">A4</option>
+    </select>
+
+    <label for="expected-value">pt増減期待値:</label>
+    <input type="text" name="expected-value" id="expected-value">
+    <button type="button" name="estimation" id="estimation">推定</button>
+  </form>
+  <input type="text" name="result" id="result" readonly>
+
+  <hr>
+  <p>なんか書いていく</p>
+</body>
+</html>
