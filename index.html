@@ -33,7 +33,7 @@
     return (x0) => {
       const index = x.reduce((pre, current, i) => current >= x0 ? i : pre, 0)
       console.log("index:",index);
-      const i = index === x.length - 1 ? x.lenngth - 2 : index
+      const i = index === x.length - 1 ? x.length - 2 : index
       console.log("i:",i);
 
       return (y[i+1] - y[i]) / (x[i+1] - x[i]) * (x0 - x[i]) + y[i]
