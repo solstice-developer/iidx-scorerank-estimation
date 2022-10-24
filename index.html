@@ -32,7 +32,9 @@
   const linear = (x, y) => {
     return (x0) => {
       const index = x.reduce((pre, current, i) => current >= x0 ? i : pre, 0)
+      console.log("index:",index);
       const i = index === x.length - 1 ? x.lenngth - 2 : index
+      console.log("i:",i);
 
       return (y[i+1] - y[i]) / (x[i+1] - x[i]) * (x0 - x[i]) + y[i]
     }
@@ -47,10 +49,6 @@
   const linear2 = linear(expected_value_data2, rank_data)
   const linear3 = linear(expected_value_data3, rank_data)
   const linear4 = linear(expected_value_data4, rank_data)
-  console.log("linear1(0)=",linear1(0));
-  console.log("linear2(0)=",linear2(0));
-  console.log("linear3(0)=",linear3(0));
-  console.log("linear4(0)=",linear4(0));
 
   const button = document.getElementById("estimation");
 
@@ -60,25 +58,22 @@
 
     let arena_class = document.getElementById("class").value;
     let expected_value = document.getElementById("expected-value").value;
-    console.log("arena_class:", arena_class);
-    console.log("expected_value:", expected_value);
     
     let estimated_rank
     switch(parseInt(arena_class)){
       case 1:
-        estimated_rank = linear1(parseFloat(expected_value));
+        estimated_rank = Math.round(linear1(parseFloat(expected_value)));
         break;
       case 2:
-        estimated_rank = linear2(parseFloat(expected_value));
+        estimated_rank = Math.round(linear2(parseFloat(expected_value)));
         break;
       case 3:
-        estimated_rank = linear3(parseFloat(expected_value));
+        estimated_rank = Math.round(linear3(parseFloat(expected_value)));
         break;
       case 4:
-        estimated_rank = linear4(parseFloat(expected_value));
+        estimated_rank = Math.round(linear4(parseFloat(expected_value)));
         break;
     }
-    console.log("estimated_rank:", estimated_rank);
     
     let result = document.getElementById("result");
     result.value = estimated_rank;
